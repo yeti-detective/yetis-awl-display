@@ -1,28 +1,40 @@
 import React from 'react'
 
 function List(props){
-  let listMap = []
-  console.log(props)
-  for (let i = 0; i < Object.keys(props).length; i++){
-    if(i === 0){
-      listMap.push(props.title)
+  let itemList = []
+  if (props.list.title){
+    itemList.push(props.list.title)
+    for ( let i = 1; i < Object.keys(props.list); i++ ){
+      itemList.push(props.list[i])
     }
-    listMap.push(props[i])
-  }
-  console.log(listMap)
-  return (
-    <div>
-      <h3>{listMap.shift()}</h3>
+    return (
       <table>
-        {listMap.map((wish)=>{
+        <thead>{itemList.shift()}</thead>
+        {itemList.map((wish)=>{
           <tr>
             <td><img src={wish.img} /></td>
             <td><a href={wish.url}>{wish.title}</a></td>
-          </tr>}
-        )}
+          </tr>
+        })}
       </table>
-    </div>
-  )
+    )
+  } else if (Object.keys(props.list).length > 0){
+    <table>
+      <thead>Wishlist</thead>
+      {itemList.map((wish)=>{
+        <tr>
+          <td><img src={wish.img} /></td>
+          <td><a href={wish.url}>{wish.title}</a></td>
+        </tr>
+      })}
+    </table>
+  } else {
+    return (
+      <div>
+        <p>Yo?</p>
+      </div>
+    )
+  }
 }
 
 export default List
