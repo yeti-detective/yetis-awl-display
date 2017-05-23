@@ -2,6 +2,7 @@ import React from 'react'
 
 function List(props){
   let listMap = []
+  console.log(props)
   for (let i = 0; i < Object.keys(props).length; i++){
     if(i === 0){
       listMap.push(props.title)
