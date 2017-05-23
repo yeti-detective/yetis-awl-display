@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Rendered by Container
 function Exposition(){
   return(
     <div>
