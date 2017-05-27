@@ -18,14 +18,12 @@ class Container extends React.Component {
   }
 
   getList(){
-    let url = 'https://yetis-amazon-wishlist-api.herokuapp.com/' + document.getElementById('input').value
-    console.log(url)
-    axios.get(url)
+    axios.get('https://yetis-amazon-wishlist-api.herokuapp.com/' + document.getElementById('input').value)
       .then((data)=>{
         this.setState({
           wishlist: JSON.parse(data.data),
           renderList: true,
-          url: url
+          url: 'https://www.amazon.com/gp/registry/wishlist/' + document.getElementById('input').value
         })
       })
   }
@@ -35,7 +33,7 @@ class Container extends React.Component {
       <div>
         <Exposition />
         <Form getList={this.getList} />
-        {this.state.renderList ? <List list={this.state.wishlist}/> : null}
+        {this.state.renderList ? <List url={this.state.url} list={this.state.wishlist}/> : null}
       </div>
     )
   }

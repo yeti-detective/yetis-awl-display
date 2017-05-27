@@ -1,11 +1,11 @@
 import React from 'react'
 
+// rendered by Container.jsx
 function List(props){
-
   return(
     <div>
       <table>
-        <thead><a href={props.list.url}>{props.list.title}</a></thead>
+        <thead><h2><a href={props.url} target="_blank">{props.list.title}</a></h2></thead>
         {
           props.list.wishes.map((wish)=>{
             return (
