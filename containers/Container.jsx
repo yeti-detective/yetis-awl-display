@@ -18,14 +18,15 @@ class Container extends React.Component {
   }
 
   getList(){
-    axios.get('https://yetis-amazon-wishlist-api.herokuapp.com/' + document.getElementById('input').value)
+    let url = 'https://yetis-amazon-wishlist-api.herokuapp.com/' + document.getElementById('input').value
+    console.log(url)
+    axios.get(url)
       .then((data)=>{
         this.setState({
           wishlist: JSON.parse(data.data),
-          renderList: true
+          renderList: true,
+          url: url
         })
-
-        //console.log(JSON.parse(data.data))
       })
   }
 
