@@ -7,6 +7,13 @@ import Form from '../components/Form.jsx'
 import Exposition from '../components/Exposition.jsx'
 import List from '../components/List.jsx'
 
+var style = {
+  width: "70%",
+  padding: 15,
+  alignText: "center",
+  fontFamily: "'Kumar One', cursive"
+}
+
 class Container extends React.Component {
   constructor(){
     super()
@@ -30,7 +37,7 @@ class Container extends React.Component {
 
   render(){
     return (
-      <div>
+      <div style={style}>
         <Exposition />
         <Form getList={this.getList} />
         {this.state.renderList ? <List url={this.state.url} list={this.state.wishlist}/> : null}
