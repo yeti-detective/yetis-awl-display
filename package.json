@@ -32,5 +32,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yeti-detective/yetis-awl-display"
+  },
+  "engines": {
+    "node": "6.11.1"
   }
 }
